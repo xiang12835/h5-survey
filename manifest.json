@@ -78,8 +78,8 @@
         },
         "title" : "jiayou-survey",
         "devServer" : {
-            "https" : false
-        },
-        "domain" : "http://www.flyingfish.online"
+            "https" : false,
+            "port" : ""
+        }
     }
 }
