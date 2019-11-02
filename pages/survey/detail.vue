@@ -8,6 +8,8 @@
 </template>
 
 <script>
+	import apiUrl from '../../common/apiUrl.js';
+	
 	export default {
 		data() {
 			return {
@@ -21,7 +23,7 @@
 			})
 			console.log(e);
 			uni.request({
-				url: 'https://unidemo.dcloud.net.cn/api/news/36kr/'+e.newsid,
+				url: apiUrl.surveyDetailApi+e.surveyid,
 				method: 'GET',
 				data: {},
 				success: res => {

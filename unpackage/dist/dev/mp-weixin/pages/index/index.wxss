@@ -1,0 +1,30 @@
+
+page {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	background-color: #efeff4
+}
+view {
+	font-size: 28rpx;
+	line-height: inherit
+}
+.uni-common-mt {
+	margin-top: 20rpx;
+	margin-bottom: 20rpx;
+}
+.uni-media-list-body {
+	height: auto;
+}
+.uni-media-list-text-top {
+	line-height: 1.6em;
+}
+

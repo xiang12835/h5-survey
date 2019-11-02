@@ -7,9 +7,10 @@
 		<view class="content">
 			<view v-show="current === 0">
 				<view class="uni-list">
-					<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(item,index) in newsList" :key="index" @tap="newsdetail"
-					 :data-newsid="item.post_id">
+					<view class="uni-list-cell" hover-class="uni-list-cell-hover" v-for="(item,index) in surveyList" :key="index" @tap="surveyDetail"
+					 :data-surveyid="item.post_id">
 						<view class="uni-media-list">
+							<!-- <image class="uni-media-list-logo" :src="item.author_avatar"></image> -->
 							<view class="uni-media-list-body">
 								<view class="uni-media-list-text-top">{{item.title}}</view>
 								<view class="uni-media-list-text-bottom uni-ellipsis">{{item.created_at}}</view>
@@ -26,7 +27,8 @@
 </template>
 
 <script>
-	import uniSegmentedControl from '@/components/uni-segmented-control/uni-segmented-control.vue'
+	import uniSegmentedControl from '@/components/uni-segmented-control/uni-segmented-control.vue';
+	import apiUrl from '../../common/apiUrl.js'; 
 	export default {
 		components: {
 			uniSegmentedControl
@@ -49,21 +51,22 @@
 				colorIndex: 0,
 				activeColor: '#4cd964',
 				styleType: 'button',
-				newsList: []
+				surveyList: []
 			}
 		},
 		methods: {
 			onClickItem(index) {
+				console.log(index);
 				if (this.current !== index) {
 					this.current = index
 				}
 			},
-			newsdetail(e) {
+			surveyDetail(e) {
 				console.log(e);
-				var newsid = e.currentTarget.dataset.newsid;
-				console.log(newsid);
+				var surveyid = e.currentTarget.dataset.surveyid;
+				console.log(surveyid);
 				uni.navigateTo({
-					url: '../info/info?newsid=' + newsid,
+					url: '../survey/detail?surveyid=' + surveyid,
 				});
 			}
 		},
@@ -72,12 +75,12 @@
 				title: "加载中..."
 			})
 			uni.request({
-				url: 'https://unidemo.dcloud.net.cn/api/news',
+				url: apiUrl.surveyListApi,
 				method: 'GET',
 				data: {},
 				success: res => {
 					console.log(res.data);
-					this.newsList = res.data;
+					this.surveyList = res.data;
 					uni.hideLoading();
 				},
 				fail: () => {},

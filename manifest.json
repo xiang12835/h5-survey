@@ -74,7 +74,7 @@
     "h5" : {
         "router" : {
             "mode" : "history",
-            "base" : "/h5/"
+            "base" : "/h5/survey/"
         },
         "title" : "jiayou-survey",
         "devServer" : {
